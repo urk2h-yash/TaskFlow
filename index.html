@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow PRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <header class="header">
+        <div>
+            <h1>TaskFlow<span> PRO</span></h1>
+            <p>Plan smart. Work better. Achieve more.</p>
+        </div>
+        <button id="themeBtn" class="theme-btn">🌙</button>
+    </header>
+
+    <section class="welcome">
+        <div>
+            <h2>Welcome back! 👋</h2>
+            <p>Let's make today productive.</p>
+        </div>
+        <div class="date" id="todayDate"></div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <span>📋</span>
+            <h2 id="totalTasks">0</h2>
+            <p>Total Tasks</p>
+        </div>
+        <div class="stat-card">
+            <span>✅</span>
+            <h2 id="completedTasks">0</h2>
+            <p>Completed</p>
+        </div>
+        <div class="stat-card">
+            <span>⏳</span>
+            <h2 id="pendingTasks">0</h2>
+            <p>Pending</p>
+        </div>
+        <div class="stat-card">
+            <span>🔥</span>
+            <h2 id="progressPercent">0%</h2>
+            <p>Progress</p>
+        </div>
+    </section>
+
+    <section class="progress-section">
+        <div class="progress-info">
+            <span>Daily Progress</span>
+            <span id="progressText">0% completed</span>
+        </div>
+        <div class="progress-track">
+            <div id="progressBar"></div>
+        </div>
+    </section>
+
+    <section class="main-card">
+
+        <h2 id="formHeading">Create New Task ✨</h2>
+
+        <form id="taskForm">
+            <input type="hidden" id="editId">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="What needs to be done?"
+                maxlength="120"
+                required
+            >
+
+            <div class="form-row">
+                <select id="priority">
+                    <option value="low">🟢 Low Priority</option>
+                    <option value="medium" selected>🟡 Medium Priority</option>
+                    <option value="high">🔴 High Priority</option>
+                </select>
+
+                <input type="date" id="dueDate">
+            </div>
+
+            <button type="submit" id="submitBtn" class="add-btn">
+                + Add Task
+            </button>
+
+            <button type="button" id="cancelEdit" class="cancel-btn hidden">
+                Cancel Edit
+            </button>
+        </form>
+
+        <div class="toolbar">
+            <input type="search" id="searchInput" placeholder="🔍 Search tasks...">
+
+            <select id="sortSelect">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="priority">Priority</option>
+                <option value="due">Due Date</option>
+            </select>
+        </div>
+
+        <div class="filters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="active">Active</button>
+            <button class="filter" data-filter="completed">Completed</button>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+
+        <div class="bottom-actions">
+            <span id="taskCount">0 tasks</span>
+            <button id="clearCompleted">Clear Completed</button>
+        </div>
+
+    </section>
+
+    <footer>
+        Made with ❤️ | TaskFlow PRO
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
